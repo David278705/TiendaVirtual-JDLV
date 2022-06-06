@@ -4,7 +4,7 @@
 
 <div class="wrapper">
   <h1>Usuarios y Roles</h1>
-  <table class="c-table">
+  <table id="table" class="c-table">
   <thead class="c-table__header">
     <tr>
       <th></th>

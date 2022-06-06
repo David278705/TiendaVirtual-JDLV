@@ -1,25 +1,25 @@
 <template>
 
-<section>
-    	<section class="showcase">
+	<section>
+		<section class="showcase">
 			<div class="video-container">
 				<video src="https://traversymedia.com/downloads/video.mov" autoplay muted loop></video>
 			</div>
 			<div class="content">
 				<h1 class="texto">Bienvenido a Tienda Virtual</h1>
-				<h3>Jose David Lozano Valencia</h3>
-				<a href="/dashboard" class="btn">Empezar</a>
+				<h3>Por :Jose David Lozano Valencia</h3>
+				<a href="/login" class="btn">Empezar</a>
 			</div>
 		</section>
 
-</section>
+	</section>
 
 </template>
 
 <script>
 
 export default {
-    name: 'Welcome.vue',
+	name: 'Welcome.vue',
 
 }
 
@@ -32,7 +32,7 @@ export default {
 	--primary-color: #3a4052;
 }
 
-.texto{
+.texto {
 	color: #fff;
 
 }
@@ -77,14 +77,13 @@ h1 {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	background: var(--primary-color) url('https://traversymedia.com/downloads/cover.jpg') no-repeat center
-		center/cover;
+	background: var(--primary-color) url('https://traversymedia.com/downloads/cover.jpg') no-repeat center center/cover;
 }
 
 .video-container video {
 	min-width: 100%;
 	min-height: 100%;
-  position: absolute;
+	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -140,6 +139,5 @@ h1 {
 .social a {
 	margin: 0 5px;
 }
-
 </style>
 

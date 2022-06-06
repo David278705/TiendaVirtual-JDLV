@@ -1,5 +1,7 @@
 <x-guest-layout>
+    
     <x-jet-authentication-card>
+        
         <x-slot name="logo">
             <img style="width: 35px" src="https://cdn.pixabay.com/photo/2017/09/24/09/59/feather-2781343_1280.png" alt="logo">
         </x-slot>
@@ -11,7 +13,7 @@
                 {{ session('status') }}
             </div>
         @endif
-
+    
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -31,16 +33,20 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Rercuerdame') }}</span>
                 </label>
             </div>
-
+            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('dashboard') }}">
+                {{ __('Ingresar como Invitado') }}
+            </a>
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
                     {{ __('No te has registrado?') }}
                 </a>
-
                 <x-jet-button class="ml-4">
                     {{ __('Iniciar Sesion') }}
                 </x-jet-button>
-            </div>
+                
+           
         </form>
+    </div>
+
     </x-jet-authentication-card>
 </x-guest-layout>

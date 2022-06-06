@@ -9,14 +9,14 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         @livewireStyles
 
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -34,13 +34,19 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main >
                 {{ $slot }}
             </main>
         </div>
 
         @stack('modals')
-
         @livewireScripts
+
+        <!-- Scripts -->
+        <script src="{{ mix('js/app.js') }}"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" ></script>
+        @yield('js')
+
+
     </body>
 </html>

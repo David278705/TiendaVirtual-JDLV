@@ -15,27 +15,9 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Productos') }}
                     </x-jet-nav-link>
-                    @auth
-                        @role('ceo')
-                            <x-jet-nav-link href="{{ route('role') }}" :active="request()->routeIs('role')">
-                                {{ __('Editar Roles') }}
-                            </x-jet-nav-link>
-                        @endrole
-                    @endauth
-                    @auth
-                        @role('editor')
-                            <x-jet-nav-link href="{{ route('e.product') }}" :active="request()->routeIs('e.product')">
-                                {{ __('Añadir productos') }}
-                            </x-jet-nav-link>
-                        @endrole
-                    @endauth
-                    @auth
-                        @role('editor')
-                            <x-jet-nav-link href="{{ route('category') }}" :active="request()->routeIs('category')">
-                                {{ __('Añadir Categorias') }}
-                            </x-jet-nav-link>
-                        @endrole
-                    @endauth
+                    <x-jet-nav-link href="{{ route('carrito') }}" :active="request()->routeIs('carrito')">
+                        {{ __('Carrito') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -63,10 +45,46 @@
 
                         <x-slot name="content">
                             <!-- Account Management -->
+                            
+                            @auth
+                            @role('ceo')
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Configuracion de Cuenta') }}
+                                {{ __('Ceo') }}
                             </div>
+                                <x-jet-dropdown-link href="{{ route('role') }}" :active="request()->routeIs('role')">
+                                    {{ __('Editar Roles') }}
+                                </x-jet-dropdown-link>
 
+                                <div class="border-t border-gray-100"></div>
+                            @endrole
+                        @endauth
+                       
+                        @auth
+                            @role('editor')
+                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                {{ __('Editor') }}
+                            </div>
+                                <x-jet-dropdown-link href="{{ route('e.product') }}" :active="request()->routeIs('e.product')">
+                                    {{ __('Productos') }}
+                                </x-jet-dropdown-link>
+                            @endrole
+                        @endauth
+                        
+                        @auth
+                            @role('editor')
+                                <x-jet-dropdown-link href="{{ route('category') }}" :active="request()->routeIs('category')">
+                                    {{ __('Categorias') }}
+                                </x-jet-dropdown-link>
+                                <div class="border-t border-gray-100"></div>
+                            @endrole
+                        @endauth
+                       
+
+                      
+
+                        <div class="block px-4 py-2 text-xs text-gray-400">
+                            {{ __('Cuenta') }}
+                        </div>
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Perfil') }}
                             </x-jet-dropdown-link>
@@ -77,7 +95,7 @@
                                 </x-jet-dropdown-link>
                             @endif
 
-                            <div class="border-t border-gray-100"></div>
+                    
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}" x-data>

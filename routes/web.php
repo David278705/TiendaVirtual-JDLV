@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/carrito', [\App\Http\Controllers\CartController::class, 'index'])->name('carrito');
+
+Route::get('/dashboard', [\App\Http\Controllers\ProductListViewController::class, 'index'])->name('dashboard');
+
+Route::get('/{category}', [\App\Http\Controllers\CatchosenController::class, 'index'])->name('catchosen');
+
 Route::get('/dashboard/role', [\App\Http\Controllers\RoleViewController::class, 'index'])->name('role')->middleware('role:ceo');
 
 Route::get('/dashboard/eproduct', [\App\Http\Controllers\ProductViewController::class, 'index'])->name('e.product')->middleware('role:editor');
@@ -31,18 +37,19 @@ Route::group(['prefix' => 'Role'], function(){
     Route::get('/update/{role}', [\App\Http\Controllers\RoleController::class, 'update'])->name('role.update');
 });
 
+
 Route::group(['prefix' => 'Category'], function(){
-    Route::post('/store', [\App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
+    
     Route::delete('/delete/{category}', [\App\Http\Controllers\CategoryController::class, 'delete'])->name('category.delete');
     Route::get('/edit/{category}', [\App\Http\Controllers\CategoryController::class, 'edit'])->name('category.edit');
     Route::post('/update/{category}', [\App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
 });
 
 Route::group(['prefix' => 'Product'], function(){
-    Route::post('/store', [\App\Http\Controllers\ProductController::class, 'store'])->name('category.store');
-    Route::delete('/delete/{category}', [\App\Http\Controllers\ProductController::class, 'delete'])->name('category.delete');
-    Route::get('/edit/{category}', [\App\Http\Controllers\ProductController::class, 'edit'])->name('category.edit');
-    Route::post('/update/{category}', [\App\Http\Controllers\ProductController::class, 'update'])->name('category.update');
+    Route::post('/store', [\App\Http\Controllers\ProductController::class, 'store'])->name('produc.store');
+    Route::delete('/delete/{product}', [\App\Http\Controllers\ProductController::class, 'delete'])->name('produc.delete');
+    Route::get('/edit/{product}', [\App\Http\Controllers\ProductController::class, 'edit'])->name('produc.edit');
+    Route::post('/update/{product}', [\App\Http\Controllers\ProductController::class, 'update'])->name('produc.update');
 });
 
 
@@ -68,12 +75,4 @@ Route::get('/test', function () {
 
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+

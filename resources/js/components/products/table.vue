@@ -1,23 +1,25 @@
 <template>
   <div class="container">
     <div class="section-form">
-      <h1>Tabla de Categorias</h1>
+      <h1>Tabla de Productos</h1>
       <br>
       <table id="table" class="c-table">
         <thead class="c-table__header">
           <tr>
-            <th></th>
             <th class="c-table__col-label">Nombre</th>
+            <th class="c-table__col-label">Categoria</th>
+            <th class="c-table__col-label">Precio</th>
             <th class="c-table__col-label">Acciones</th>
           </tr>
         </thead>
         <tbody class="c-table__body">
-          <tr v-for="(category, index) in categories" :key="index">
-            <td></td>
-            <td>{{ category.name }}</td>
+          <tr v-for="(product, index) in products" :key="index">
+            <td>{{ product.name }}</td>
+            <td>{{ product.category.name }}</td>
+            <td>{{ product.Price }}</td>
             <td>
-              <a class="btn btn-warning" :href="`/Category/edit/${category.id}`">Editar</a>
-              <a class="btn btn-danger" @click="deleteCategory(category, index)">Eliminar</a>
+              <a class="btn btn-warning" :href="`/Product/edit/${product.id}`">Editar</a>
+              <a class="btn btn-danger" @click="deleteProduct(product, index)">Eliminar</a>
               <div class="height"></div>
             </td>
 
@@ -32,11 +34,11 @@
 
 
 export default {
-  props: ['categories'],
+  props: ['products'],
   name: "Table",
   data() {
     return {
-      category: {
+      product: {
         name: null,
       }
 
@@ -44,16 +46,16 @@ export default {
   },
   methods: {
 
-    async deleteCategory(category, index) {
-      await axios.delete(`/Category/delete/${category.id}`).then(res => {
+    async deleteProduct(product, index) {
+      await axios.delete(`/Product/delete/${product.id}`).then(res => {
         if (res.data.deleted) {
-          this.$parent.categories_update.splice(index, 1)
+          this.$parent.products_update.splice(index, 1)
         }
       })
     },
     async save() {
 
-      await axios.post(`/Category/update/${this.category.id}`, this.category).then(res => {
+      await axios.post(`/Product/update/${this.product.id}`, this.product).then(res => {
         if (res.data.updated) {
           alert('informacion actualizada con exito!')
         }
@@ -64,7 +66,7 @@ export default {
     getAll(character) {
 
 
-      this.category = character
+      this.product = character
 
 
 
