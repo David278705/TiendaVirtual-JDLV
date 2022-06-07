@@ -9,11 +9,16 @@ class Cart extends Model
 {
     use HasFactory;
 
-    public function produc(): \Illuminate\Database\Eloquent\Relations\HasOne
+    protected $fillable = ['user_id', 'product_id'];
+    
+    public function user()
     {
-
-        return $this->hasOne(Person::class);
-
+        return $this->hasMany(User::class);
     }
 
+
+    public function product() :\Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Product::class);
+    }
 }

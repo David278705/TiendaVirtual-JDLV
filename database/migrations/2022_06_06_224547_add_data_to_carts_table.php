@@ -14,15 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::table('carts', function (Blueprint $table) {
-            $table->string('name');
-            $table->foreignId('category_id')->constrained();
-            $table->integer('Price');
-            $table->string('Description');
-            $table->string('Image');
+            $table->foreignId('product_id')->constrained();
             $table->foreignId('user_id')->constrained();
         });
     }
-
+  
     /**
      * Reverse the migrations.
      *

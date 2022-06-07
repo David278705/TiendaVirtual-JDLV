@@ -24,7 +24,7 @@ import ShoppingCart from './components/cart'
 
 import ProductlistIndex from './components/productlist/Index'
 
-import chosen from './components/productlist/catchosen'
+import ProductDetail from './components/productlist/Productdetail'
 
 window.Alpine = Alpine;
 
@@ -44,7 +44,7 @@ new Vue({
         ProductForm,
         ShoppingCart,
         ProductlistIndex,
-        CatchosenIndex: chosen,
+        ProductDetail,
     }
 
 })

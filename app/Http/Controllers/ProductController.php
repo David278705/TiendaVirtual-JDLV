@@ -34,6 +34,11 @@ class ProductController extends Controller
         ]);
     }
 
+    public function storeProduct(Product $product)
+    {
+        return view('productdetail', compact('product'));
+    }
+
     public function delete(Product $product)
     {
         $product -> delete();

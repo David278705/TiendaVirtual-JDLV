@@ -31,6 +31,12 @@ class User extends Authenticatable
 
     }
 
+    public function cart(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    
+    {
+        return $this->belongsTo(Cart::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

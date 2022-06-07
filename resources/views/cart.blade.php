@@ -10,7 +10,7 @@
 
     <div class="py-12">
         <div id="app" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <shopping-cart :cart="{{$cart}}" />  
+                <shopping-cart :cart="{{$cart}}" :user="{{$user}}"/>  
         </div>
     </div>
 </x-app-layout>

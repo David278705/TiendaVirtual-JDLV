@@ -7,11 +7,6 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function indexchosen(Category $category)
-    {
-        $products = Product::all();
-        return view('catchosen', compact('products', 'category'));
-    }
 
     public function index()
     {

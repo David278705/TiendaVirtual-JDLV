@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +28,11 @@ Route::get('/dashboard/category', [\App\Http\Controllers\CategoryController::cla
 
 Route::get('/dashboard/{category?}', [\App\Http\Controllers\ProductController::class, 'listindex'])->name('dashboard');
 
+Route::get('/dashboard/product/{product}', [\App\Http\Controllers\ProductController::class, 'storeProduct'])->name('detail');
+
+Route::post('/Carrito/store', [\App\Http\Controllers\CartController::class, 'store'])->name('detail');
+
+
 Route::group(['prefix' => 'Role'], function(){
     Route::get('/store/{role}', [\App\Http\Controllers\RoleController::class, 'store'])->name('role.store');
     Route::get('/delete/{role}', [\App\Http\Controllers\RoleController::class, 'delete'])->name('role.delete');
@@ -33,8 +41,7 @@ Route::group(['prefix' => 'Role'], function(){
 });
 
 
-Route::group(['prefix' => 'Category'], function(){
-    
+Route::group(['prefix' => 'Category'], function(){   
     Route::delete('/delete/{category}', [\App\Http\Controllers\CategoryController::class, 'delete'])->name('category.delete');
     Route::get('/edit/{category}', [\App\Http\Controllers\CategoryController::class, 'edit'])->name('category.edit');
     Route::post('/update/{category}', [\App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
@@ -50,8 +57,10 @@ Route::group(['prefix' => 'Product'], function(){
 
 
 Route::get('/test', function () {
+
+
    /* \Spatie\Permission\Models\Role::create([
-        'name' => 'editor' 
+        'name' => 'ceo' 
     ]);
 \Spatie\Permission\Models\Role::create([
         'name' => 'editor' 
