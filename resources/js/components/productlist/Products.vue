@@ -1,46 +1,24 @@
 <template>
   <section class="container">
 
+<div class="pb-5" v-for="(category, index) in products" :key="index">
 
-
-
-
-    <div class="row" v-for="(category, index) in categories" :key="index">
-
-      <div v-if="categories == null">
-        <h1>{{ category.name }}</h1>
-      </div>
-
-      <div class="boton" v-else>
-        <h1><a class="h1" :href="`/${category.id}`">{{ category.name }}</a></h1>
-      </div>
-
-
-      <div class="col-3" v-for="(product, index) in products" :key="index">
-
-        <div v-if="category.id == product.category_id">
-
-          <div>
-            <div class="text-box">
-              <h2 class="item">{{ product.name }}</h2>
-              <h3 class="price">${{ product.Price }}</h3>
-              <p class="description">{{ product.Description }}</p>
-
-            </div>
-            <h1><a class="btn btn-success">Añadir al Carrito</a></h1>
-          </div>
-
-        </div>
-      </div>
-
-
+  <div class="hover"><h1><a :href="`/dashboard/${category.name}`" class="fw-bold">{{ category.name }}</a></h1></div>
+  <div class="row row-cols-1 row-cols-md-4">
+    <div v-for="(product) in category.product" class="col mb-3">
+      <div class="card">
+              <div class="card-header">
+                <h2 class="item">{{ product.name }}</h2>
+                </div>       
+                <div class="card-body">
+                <h3 class="price">${{ product.Price }}</h3>
+                <p class="description">{{ product.Description }}</p>
+                </div>        
+                <div class="card-footer text-center"><a class="btn btn-success">Añadir al Carrito</a></div>
+            </div>     
     </div>
-
-
-
-
-
-
+  </div>
+</div>
 
   </section>
 
@@ -49,9 +27,8 @@
 <script>
 
 export default {
-  props: ['categories', 'products', 'category'],
+  props: ['products'],
   name: 'Products.vue',
-
 }
 
 
@@ -59,6 +36,12 @@ export default {
 </script>
 
 <style scope>
+
+.hover:hover {
+  cursor: pointer;
+
+}
+
 .listing-section,
 .cart-section {
   width: 100%;

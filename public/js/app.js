@@ -8583,14 +8583,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['categories', 'products', 'category'],
+  props: ['products'],
   name: "Index",
   components: {
     ProductList: _Products__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
-      products_update: this.products,
       product: {
         create: true
       }
@@ -8637,30 +8636,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['categories', 'products', 'category'],
+  props: ['products'],
   name: 'Products.vue'
 });
 
@@ -14315,7 +14292,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.listing-section,\r\n.cart-section {\r\n  width: 100%;\r\n  float: left;\r\n  padding: 1%;\r\n  border-bottom: 0.01em solid #dddbdb;\n}\n.product {\r\n  float: left;\r\n  width: 23%;\r\n  border-radius: 2%;\r\n  margin: 1%;\n}\n.boton {\r\n\r\n  font-size: 30px;\r\n  text-align: center;\n}\n.text-box {\r\n  width: 100%;\r\n  float: left;\r\n  border: 0.01em solid #dddbdb;\r\n  border-radius: 0 0 2% 2%;\r\n  padding: 1em;\n}\n.item,\r\n.price {\r\n  clear: left;\r\n  width: 100%;\r\n  text-align: center;\n}\n.price {\r\n  color: Grey;\n}\n.description {\r\n  float: left;\r\n  clear: left;\r\n  width: 100%;\r\n  font-family: 'Roboto', sans-serif;\r\n  font-weight: 300;\r\n  font-size: 1em;\r\n  text-align: center;\r\n  margin: 0.2em auto;\n}\ninput:focus {\r\n  outline-color: #fdf;\n}\n.text-box input {\r\n  width: 15%;\r\n  clear: none;\n}\n.text-box button {\r\n  margin-top: 1em;\n}\nbutton:focus {\r\n  outline: 0;\n}\nbutton:active {\r\n  bottom: 0;\r\n  background-color: #fdf;\n}\n.table-heading,\r\n.table-content {\r\n  width: 75%;\r\n  margin: 1% 12.25%;\r\n  float: left;\r\n  background-color: #dfd;\n}\n.table-heading h2 {\r\n  padding: 1%;\r\n  margin: 0;\r\n  text-align: center;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.hover:hover {\r\n  cursor: pointer;\n}\n.listing-section,\r\n.cart-section {\r\n  width: 100%;\r\n  float: left;\r\n  padding: 1%;\r\n  border-bottom: 0.01em solid #dddbdb;\n}\n.product {\r\n  float: left;\r\n  width: 23%;\r\n  border-radius: 2%;\r\n  margin: 1%;\n}\n.boton {\r\n\r\n  font-size: 30px;\r\n  text-align: center;\n}\n.text-box {\r\n  width: 100%;\r\n  float: left;\r\n  border: 0.01em solid #dddbdb;\r\n  border-radius: 0 0 2% 2%;\r\n  padding: 1em;\n}\n.item,\r\n.price {\r\n  clear: left;\r\n  width: 100%;\r\n  text-align: center;\n}\n.price {\r\n  color: Grey;\n}\n.description {\r\n  float: left;\r\n  clear: left;\r\n  width: 100%;\r\n  font-family: 'Roboto', sans-serif;\r\n  font-weight: 300;\r\n  font-size: 1em;\r\n  text-align: center;\r\n  margin: 0.2em auto;\n}\ninput:focus {\r\n  outline-color: #fdf;\n}\n.text-box input {\r\n  width: 15%;\r\n  clear: none;\n}\n.text-box button {\r\n  margin-top: 1em;\n}\nbutton:focus {\r\n  outline: 0;\n}\nbutton:active {\r\n  bottom: 0;\r\n  background-color: #fdf;\n}\n.table-heading,\r\n.table-content {\r\n  width: 75%;\r\n  margin: 1% 12.25%;\r\n  float: left;\r\n  background-color: #dfd;\n}\n.table-heading h2 {\r\n  padding: 1%;\r\n  margin: 0;\r\n  text-align: center;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -47286,15 +47263,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "section",
-    [
-      _c("product-list", {
-        attrs: {
-          categories: _vm.categories,
-          category: _vm.category,
-          products: _vm.products_update,
-        },
-      }),
-    ],
+    [_c("product-list", { attrs: { products: _vm.products } })],
     1
   )
 }
@@ -47324,51 +47293,50 @@ var render = function () {
   return _c(
     "section",
     { staticClass: "container" },
-    _vm._l(_vm.categories, function (category, index) {
-      return _c(
-        "div",
-        { key: index, staticClass: "row" },
-        [
-          _vm.categories == null
-            ? _c("div", [_c("h1", [_vm._v(_vm._s(category.name))])])
-            : _c("div", { staticClass: "boton" }, [
-                _c("h1", [
-                  _c(
-                    "a",
-                    { staticClass: "h1", attrs: { href: "/" + category.id } },
-                    [_vm._v(_vm._s(category.name))]
-                  ),
+    _vm._l(_vm.products, function (category, index) {
+      return _c("div", { key: index, staticClass: "pb-5" }, [
+        _c("div", { staticClass: "hover" }, [
+          _c("h1", [
+            _c(
+              "a",
+              {
+                staticClass: "fw-bold",
+                attrs: { href: "/dashboard/" + category.name },
+              },
+              [_vm._v(_vm._s(category.name))]
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row row-cols-1 row-cols-md-4" },
+          _vm._l(category.product, function (product) {
+            return _c("div", { staticClass: "col mb-3" }, [
+              _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-header" }, [
+                  _c("h2", { staticClass: "item" }, [
+                    _vm._v(_vm._s(product.name)),
+                  ]),
                 ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("h3", { staticClass: "price" }, [
+                    _vm._v("$" + _vm._s(product.Price)),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "description" }, [
+                    _vm._v(_vm._s(product.Description)),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _vm._m(0, true),
               ]),
-          _vm._v(" "),
-          _vm._l(_vm.products, function (product, index) {
-            return _c("div", { key: index, staticClass: "col-3" }, [
-              category.id == product.category_id
-                ? _c("div", [
-                    _c("div", [
-                      _c("div", { staticClass: "text-box" }, [
-                        _c("h2", { staticClass: "item" }, [
-                          _vm._v(_vm._s(product.name)),
-                        ]),
-                        _vm._v(" "),
-                        _c("h3", { staticClass: "price" }, [
-                          _vm._v("$" + _vm._s(product.Price)),
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "description" }, [
-                          _vm._v(_vm._s(product.Description)),
-                        ]),
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(0, true),
-                    ]),
-                  ])
-                : _vm._e(),
             ])
           }),
-        ],
-        2
-      )
+          0
+        ),
+      ])
     }),
     0
   )
@@ -47378,7 +47346,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h1", [
+    return _c("div", { staticClass: "card-footer text-center" }, [
       _c("a", { staticClass: "btn btn-success" }, [
         _vm._v("Añadir al Carrito"),
       ]),
@@ -47415,9 +47383,9 @@ var render = function () {
         _c("h1", [_vm._v(_vm._s(_vm.category.name))]),
         _vm._v(" "),
         _vm._l(_vm.products, function (product, index) {
-          return _c("div", { key: index, staticClass: "col-6.5 product" }, [
-            _vm.category.id == product.category_id
-              ? _c("div", [
+          return _vm.category.id == product.category_id
+            ? _c("div", { key: index, staticClass: "col product" }, [
+                _c("div", [
                   _c("div", [
                     _c("div", { staticClass: "text-box" }, [
                       _c("h2", { staticClass: "item" }, [
@@ -47435,9 +47403,9 @@ var render = function () {
                     _vm._v(" "),
                     _vm._m(0, true),
                   ]),
-                ])
-              : _vm._e(),
-          ])
+                ]),
+              ])
+            : _vm._e()
         }),
       ],
       2

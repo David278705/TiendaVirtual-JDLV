@@ -7,9 +7,9 @@
       <h1>{{ category.name }}</h1>
 
 
-      <div class="col-6.5 product" v-for="(product, index) in products" :key="index">
+      <div class="col product" v-if="category.id == product.category_id" v-for="(product, index) in products" :key="index">
 
-        <div v-if="category.id == product.category_id">
+        <div >
 
           <div>
             <div class="text-box">

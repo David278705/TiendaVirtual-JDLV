@@ -1,6 +1,6 @@
 <template>
     <section>
-        <product-list :categories="categories" :category="category" :products="products_update"></product-list>
+        <product-list :products="products"></product-list>
     </section>
 </template>
 
@@ -8,14 +8,13 @@
 import ProductList from './Products'
 
 export default {
-    props: ['categories', 'products', 'category'],
+    props: [ 'products' ],
     name: "Index",
     components: {
         ProductList
     },
     data() {
         return {
-            products_update: this.products,
             product: {
                 create: true
             }

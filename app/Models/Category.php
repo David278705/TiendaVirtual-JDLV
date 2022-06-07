@@ -11,10 +11,10 @@ class Category extends Model
 
     protected $fillable = ['name'];
 
-    public function product(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function product(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
 
-        return $this->hasOne(Product::class);
+        return $this->hasMany(Product::class);
 
     }
 }

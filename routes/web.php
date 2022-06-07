@@ -19,9 +19,7 @@ Route::get('/', function () {
 
 Route::get('/carrito', [\App\Http\Controllers\CartController::class, 'index'])->name('carrito');
 
-Route::get('/dashboard', [\App\Http\Controllers\ProductListViewController::class, 'index'])->name('dashboard');
-
-Route::get('/{category}', [\App\Http\Controllers\CatchosenController::class, 'index'])->name('catchosen');
+Route::get('/dashboard/{category?}', [\App\Http\Controllers\ProductListViewController::class, 'index'])->name('dashboard');
 
 Route::get('/dashboard/role', [\App\Http\Controllers\RoleViewController::class, 'index'])->name('role')->middleware('role:ceo');
 

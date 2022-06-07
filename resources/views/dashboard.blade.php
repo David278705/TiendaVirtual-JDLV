@@ -8,7 +8,7 @@
 
     <div class="py-12">
         <div id="app" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <productlist-index  :categories="{{$categories}}" :products="{{$products}}"/>  
+                <productlist-index  :products="{{$products}}"/>  
         </div>
     </div>
 </x-app-layout>
@@ -25,7 +25,7 @@
 
     <div class="py-12">
         <div id="app" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <productlist-index :categories="{{$categories}}" :products="{{$products}}"/>  
+                <productlist-index  :products="{{$products}}"/>  
         </div>
     </div>
 </x-guest-layout>
