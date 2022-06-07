@@ -20,7 +20,7 @@ import CategoryForm from './components/Category/Form'
 
 import ProductForm from './components/products/add'
 
-import ShoppingCart from './components/cart'
+import ShoppingCart from './components/cart/Index'
 
 import ProductlistIndex from './components/productlist/Index'
 

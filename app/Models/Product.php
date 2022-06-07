@@ -16,8 +16,8 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function cart(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function cart(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->belongsTo(Cart::class);
+        return $this->hasMany(Cart::class);
     }
 }

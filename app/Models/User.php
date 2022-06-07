@@ -31,10 +31,9 @@ class User extends Authenticatable
 
     }
 
-    public function cart(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    
+    public function cart(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->belongsTo(Cart::class);
+        return $this->hasMany(Cart::class);
     }
 
     /**

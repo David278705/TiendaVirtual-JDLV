@@ -11,14 +11,13 @@ class Cart extends Model
 
     protected $fillable = ['user_id', 'product_id'];
     
-    public function user()
+    public function user() :\Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
-
-    public function product() :\Illuminate\Database\Eloquent\Relations\HasMany
+    public function product() :\Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Product::class);
     }
 }

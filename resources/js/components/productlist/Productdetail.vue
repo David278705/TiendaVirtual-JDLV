@@ -14,7 +14,7 @@
 
   <div class="cta">
     <div class="price">${{ product.Price }}</div>
-    <button class="btn">Añadir al Carrito<span class="bg"></span></button>
+    <button class="btn"><a @click="save(product)">Añadir al Carrito</a><span class="bg"></span></button>
   </div>
 </div>
 <div class="bg"></div>
@@ -31,29 +31,19 @@
 export default {
   props: ['product'],
   name: 'Productsdetail.vue',
-    methods: {
-        async save() {
-            let url = `/Category/store`
-            if (!this.category.create) {
-                url = `/Category/update/${this.category.id}`
-            }
-            await axios.post(url, this.category).then(res => {
+  methods: {
+    async save(product) {
+            await axios.post(`/Carrito/store`, product).then(res => {
                 if (res.data.saved) {
-                    this.category = {
-                        name: null,
-                    }
-                    location.reload();
-
+                    alert('info subida al carrito!')
                 }
-
-                else if (res.data.updated) {
-                    window.location = "/dashboard/category";
+                else{
+                  alert('debes iniciar sesion para poder hacer eso')
                 }
-
             })
 
         }
-    },
+  },
 }
 
 

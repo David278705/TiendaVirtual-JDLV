@@ -35,9 +35,13 @@ export default {
                 if (res.data.saved) {
                     alert('info subida al carrito!')
                 }
+                else{
+                  alert('debes iniciar sesion para poder hacer eso')
+                }
             })
 
-        }
+        },
+      
   },
 }
 

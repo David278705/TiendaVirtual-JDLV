@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained();
             $table->integer('Price');
             $table->string('Description');
-            $table->string('Image');
         });
     }
 

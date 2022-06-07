@@ -13,25 +13,45 @@ class CartController extends Controller
     {
         
         $user = Auth::user();
-        $cart = Cart::with('user')->where('user_id')->get();
+        $cart = Cart::with('user', 'product')->get();
         return view('cart', compact('cart', 'user'));
     }
 
     public function store(Request $request)
     {
         
-        $user = Auth::user()->id;   
-        $products = Product::all();
-        $cart = new Cart();
-        $cart->fill([
-            'product_id' => $request->id,
-            'user_id' => $user,
-        ]);
-        $cart->save();
+        if(Auth::user()){
 
+            $user = Auth::user()->id;   
+            $products = Product::all();
+            $cart = new Cart();
+            $cart->fill([
+                'product_id' => $request->id,
+                'user_id' => $user,
+            ]);
+            $cart->save();
+    
+            return response()->json([
+                'saved' => true,
+                'product' => $products
+            ]);
+
+        }
+
+        else{
+            $products = Product::all();
+            return response()->json([
+                'saved' => false,
+                'product' => $products
+            ]);
+        }
+    }
+
+    public function delete(Cart $cart)
+    {
+        $cart -> delete();
         return response()->json([
-            'saved' => true,
-            'product' => $products
+            'deleted' => true,
         ]);
     }
 }

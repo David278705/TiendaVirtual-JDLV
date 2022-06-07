@@ -18,19 +18,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\ProductController::class, 'listindex'])->name('dashboard');
 
-Route::get('/carrito', [\App\Http\Controllers\CartController::class, 'index'])->name('carrito');
+Route::group(['prefix' => 'Carrito'], function(){
+    Route::get('/', [\App\Http\Controllers\CartController::class, 'index'])->name('Carrito');
+    Route::post('/store', [\App\Http\Controllers\CartController::class, 'store'])->name('store');
+    Route::delete('/delete/{cart}', [\App\Http\Controllers\CartController::class, 'delete'])->name('delete');
 
-Route::get('/dashboard/role', [\App\Http\Controllers\RoleController::class, 'index'])->name('role')->middleware('role:ceo');
+});
 
-Route::get('/dashboard/eproduct', [\App\Http\Controllers\ProductController::class, 'index'])->name('e.product')->middleware('role:editor');
-
-Route::get('/dashboard/category', [\App\Http\Controllers\CategoryController::class, 'index'])->name('category')->middleware('role:editor');
-
-Route::get('/dashboard/{category?}', [\App\Http\Controllers\ProductController::class, 'listindex'])->name('dashboard');
-
-Route::get('/dashboard/product/{product}', [\App\Http\Controllers\ProductController::class, 'storeProduct'])->name('detail');
-
-Route::post('/Carrito/store', [\App\Http\Controllers\CartController::class, 'store'])->name('detail');
+Route::group(['prefix' => 'dashboard'], function(){
+    Route::get('/role', [\App\Http\Controllers\RoleController::class, 'index'])->name('role')->middleware('role:ceo');
+    Route::get('/eproduct', [\App\Http\Controllers\ProductController::class, 'index'])->name('e.product')->middleware('role:editor');    
+    Route::get('/category', [\App\Http\Controllers\CategoryController::class, 'index'])->name('category')->middleware('role:editor');   
+    Route::get('/{category?}', [\App\Http\Controllers\ProductController::class, 'listindex'])->name('dashboard');    
+    Route::get('/product/{product}', [\App\Http\Controllers\ProductController::class, 'storeProduct'])->name('detail');
+});
 
 
 Route::group(['prefix' => 'Role'], function(){

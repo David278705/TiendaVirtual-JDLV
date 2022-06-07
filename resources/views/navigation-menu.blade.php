@@ -18,7 +18,7 @@
                         {{ __('Productos') }}
                     </x-jet-nav-link>
                     @auth
-                    <x-jet-nav-link href="{{ route('carrito') }}" :active="request()->routeIs('carrito')">
+                    <x-jet-nav-link href="{{ route('Carrito') }}" :active="request()->routeIs('Carrito')">
                         {{ __('Carrito') }}
                     </x-jet-nav-link>
                     @endauth
