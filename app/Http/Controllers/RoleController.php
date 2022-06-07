@@ -8,6 +8,13 @@ use App\Models\User;
 
 class RoleController extends Controller
 {
+    public function index()
+    {
+        $roles = Role::all();
+        $users = User::with('roles')->get();
+        return view('role', compact('users','roles'));
+    }
+
     public function edit($user)
     {
         $suser = User::findOrFail($user);

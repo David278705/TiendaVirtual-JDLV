@@ -2,11 +2,23 @@
 
 namespace App\Http\Controllers;
 use \App\Models\Category;
-
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public function indexchosen(Category $category)
+    {
+        $products = Product::all();
+        return view('catchosen', compact('products', 'category'));
+    }
+
+    public function index()
+    {
+        $categories = Category::all();
+        return view('categories', compact('categories'));
+    }
+
     public function store(Request $request)
     {
         $category = new Category($request->all());  

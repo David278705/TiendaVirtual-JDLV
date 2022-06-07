@@ -47201,7 +47201,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("h3", [_vm._v("Por :Jose David Lozano Valencia")]),
       _vm._v(" "),
-      _c("a", { staticClass: "btn", attrs: { href: "/login" } }, [
+      _c("a", { staticClass: "btn", attrs: { href: "/dashboard" } }, [
         _vm._v("Empezar"),
       ]),
     ])
@@ -47236,7 +47236,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", [_c("h1", [_vm._v("dasasd")])])
+    return _c("section", [_c("h1", [_vm._v("Carrito de Compras")])])
   },
 ]
 render._withStripped = true

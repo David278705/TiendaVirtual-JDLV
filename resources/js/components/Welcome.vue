@@ -8,7 +8,7 @@
 			<div class="content">
 				<h1 class="texto">Bienvenido a Tienda Virtual</h1>
 				<h3>Por :Jose David Lozano Valencia</h3>
-				<a href="/login" class="btn">Empezar</a>
+				<a href="/dashboard" class="btn">Empezar</a>
 			</div>
 		</section>
 

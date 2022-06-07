@@ -13,20 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\ProductController::class, 'listindex'])->name('dashboard');
 
 Route::get('/carrito', [\App\Http\Controllers\CartController::class, 'index'])->name('carrito');
 
-Route::get('/dashboard/{category?}', [\App\Http\Controllers\ProductListViewController::class, 'index'])->name('dashboard');
+Route::get('/dashboard/role', [\App\Http\Controllers\RoleController::class, 'index'])->name('role')->middleware('role:ceo');
 
-Route::get('/dashboard/role', [\App\Http\Controllers\RoleViewController::class, 'index'])->name('role')->middleware('role:ceo');
+Route::get('/dashboard/eproduct', [\App\Http\Controllers\ProductController::class, 'index'])->name('e.product')->middleware('role:editor');
 
-Route::get('/dashboard/eproduct', [\App\Http\Controllers\ProductViewController::class, 'index'])->name('e.product')->middleware('role:editor');
+Route::get('/dashboard/category', [\App\Http\Controllers\CategoryController::class, 'index'])->name('category')->middleware('role:editor');
 
-Route::get('/dashboard/category', [\App\Http\Controllers\CategoryViewController::class, 'index'])->name('category')->middleware('role:editor');
-
+Route::get('/dashboard/{category?}', [\App\Http\Controllers\ProductController::class, 'listindex'])->name('dashboard');
 
 Route::group(['prefix' => 'Role'], function(){
     Route::get('/store/{role}', [\App\Http\Controllers\RoleController::class, 'store'])->name('role.store');

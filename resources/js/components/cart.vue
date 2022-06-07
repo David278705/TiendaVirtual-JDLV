@@ -1,6 +1,6 @@
 <template>
     <section>
-        <h1>dasasd</h1>
+        <h1>Carrito de Compras</h1>
     </section>
 </template>
 
