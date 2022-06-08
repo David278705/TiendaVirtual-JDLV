@@ -13,6 +13,15 @@
                 <shopping-cart :cart="{{$cart}}" :user="{{$user}}"/>  
         </div>
     </div>
+
+    @section('js')
+    <script>
+        $(document).ready(function () {
+        $('#table').DataTable();
+    });
+    </script>
+    @endsection
+
 </x-app-layout>
 
 @endauth

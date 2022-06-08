@@ -33,9 +33,6 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Rercuerdame') }}</span>
                 </label>
             </div>
-            <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('dashboard') }}">
-                {{ __('Ingresar como Invitado') }}
-            </a>
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
                     {{ __('No te has registrado?') }}

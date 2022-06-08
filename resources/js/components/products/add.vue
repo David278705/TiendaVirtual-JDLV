@@ -20,6 +20,14 @@
           </select>
         </div>
         <br>
+         <div class="form-group">
+          <label class="form-label">Stock</label>
+          <select class="form-control" v-model="product.stock" required>
+            <option>Con Stock</option>
+            <option>Sin Stock</option>
+          </select>
+        </div>
+        <br>
         <div class="form-group">
           <label for="name">Precio</label>
           <input type="text" v-model="product.Price" required>

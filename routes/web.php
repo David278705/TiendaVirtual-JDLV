@@ -43,6 +43,7 @@ Route::group(['prefix' => 'Role'], function(){
 
 
 Route::group(['prefix' => 'Category'], function(){   
+    Route::post('/store', [\App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
     Route::delete('/delete/{category}', [\App\Http\Controllers\CategoryController::class, 'delete'])->name('category.delete');
     Route::get('/edit/{category}', [\App\Http\Controllers\CategoryController::class, 'edit'])->name('category.edit');
     Route::post('/update/{category}', [\App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');

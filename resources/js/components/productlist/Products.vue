@@ -11,9 +11,15 @@
                 <h2 class="item"><a :href="`/dashboard/product/${product.id}`">{{ product.name }}</a></h2>
                 </div>       
                 <div class="card-body">
-                <h3 class="price">${{ product.Price }}</h3>
-                <p class="description">{{ product.Description }}</p>
+                <h3 class="price">Precio: ${{ product.Price }}</h3>
+                    <div v-if="product.stock == 'Con Stock'">
+    <h4 class="verde">{{product.stock}}</h4>
+    </div>
+    <div v-else>
+      <h4 class="rojo">{{product.stock}}</h4>
+    </div>
                 </div>        
+                
                 <div class="card-footer text-center"><a @click="save(product)" class="btn btn-success">Añadir al Carrito</a></div>
             </div>     
     </div>
@@ -31,14 +37,23 @@ export default {
   name: 'Products.vue',
   methods: {
     async save(product) {
-            await axios.post(`/Carrito/store`, product).then(res => {
+      if(product.stock == 'Sin Stock'){
+
+              alert('Este producto no tiene Stock!')
+              
+            }
+
+            else{
+await axios.post(`/Carrito/store`, product).then(res => {
                 if (res.data.saved) {
-                    alert('info subida al carrito!')
+                    alert('Información subida al carrito!')
                 }
                 else{
                   alert('debes iniciar sesion para poder hacer eso')
                 }
             })
+            }
+            
 
         },
       

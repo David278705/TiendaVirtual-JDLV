@@ -1,28 +1,47 @@
 <template>
     <section>
-        <h1><small>Carrito de Compras de {{ user.name }}</small></h1>
 
-              <table id="table" class="c-table">
-        <thead class="c-table__header">
-          <tr>
-            <th></th>
-            <th class="c-table__col-label">Nombre</th>
-            <th class="c-table__col-label">Precio</th>
-            <th class="c-table__col-label">Acciones</th>
-          </tr>
-        </thead>
-        <tbody v-for="(cart, index) in cart" :key="index" class="c-table__body">
-          <tr v-if="user.id == cart.user.id">
-            <td></td>
-            <td>{{cart.product.name}}</td>
-            <td>${{cart.product.Price}}</td>
-            <td>
-              <a @click="deleteCart(cart, index)" class="btn btn-danger">Eliminar</a>
-              <div class="height"></div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+<br>
+<div class="shopping-cart ">
+
+  <div class="column-labels">
+    <label class="product-details">Producto</label>
+    <label class="product-price">Precio</label>
+    <label class="product-removal">Eliminar</label>
+    <label class="product-line-price">Total</label>
+  </div>
+
+  <div v-for="(cart, index) in cart" :key="index" class="product">
+  <div v-if="user.id == cart.user.id">
+    <div class="product-details">
+      <div class="product-title">{{cart.product.name}}</div>
+      <p class="product-description">{{ cart.product.Description }}</p>
+    </div>
+    <div class="product-price">{{ cart.product.Price }}</div>
+    <div class="product-removal">
+      <a @click="deleteCart(cart, index)" class=" remove-product">Eliminar</a>
+    </div>
+    <div class="product-line-price">{{ cart.product.Price }}</div>
+    </div>
+  </div>
+
+
+  <div class="totals">
+    <div class="totals-item">
+      <label>Subtotal</label>
+      <div class="totals-value" id="cart-subtotal"></div>
+    </div>
+    <div class="totals-item totals-item-total">
+      <label>Total Final</label>
+      <div class="totals-value" id="cart-total"></div>
+    </div>
+  </div>
+
+  <a  class="btn btn-success checkout">Comprar</a>
+
+</div>
+      
+
     </section>
 </template>
 
@@ -48,6 +67,7 @@ export default {
     },
 
 }
+$('#myTable tr > *:nth-child(2)').hide();
 </script>
 
 <style scoped>

@@ -8623,6 +8623,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['cart', 'user'],
   name: "cart",
@@ -8657,6 +8676,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   }
 });
+$('#myTable tr > *:nth-child(2)').hide();
 
 /***/ }),
 
@@ -8743,6 +8763,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['product'],
   name: 'Productsdetail.vue',
@@ -8753,16 +8779,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                if (!(product.stock == 'Sin Stock')) {
+                  _context.next = 4;
+                  break;
+                }
+
+                alert('Este producto no tiene Stock!');
+                _context.next = 6;
+                break;
+
+              case 4:
+                _context.next = 6;
                 return axios.post("/Carrito/store", product).then(function (res) {
                   if (res.data.saved) {
-                    alert('info subida al carrito!');
+                    alert('Información subida al carrito!');
                   } else {
                     alert('debes iniciar sesion para poder hacer eso');
                   }
                 });
 
-              case 2:
+              case 6:
               case "end":
                 return _context.stop();
             }
@@ -8820,6 +8856,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['products'],
   name: 'Products.vue',
@@ -8830,16 +8872,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                if (!(product.stock == 'Sin Stock')) {
+                  _context.next = 4;
+                  break;
+                }
+
+                alert('Este producto no tiene Stock!');
+                _context.next = 6;
+                break;
+
+              case 4:
+                _context.next = 6;
                 return axios.post("/Carrito/store", product).then(function (res) {
                   if (res.data.saved) {
-                    alert('info subida al carrito!');
+                    alert('Información subida al carrito!');
                   } else {
                     alert('debes iniciar sesion para poder hacer eso');
                   }
                 });
 
-              case 2:
+              case 6:
               case "end":
                 return _context.stop();
             }
@@ -8912,6 +8964,14 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -14447,7 +14507,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.cent{\r\n\r\ndisplay: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 50%;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.verde{\r\n\r\n  color: rgb(3, 185, 3);\r\n  text-align: center;\n}\n.rojo{\r\n\r\n  color:red;\r\n  text-align: center;\n}\n.cent{\r\n\r\ndisplay: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 50%;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -47486,31 +47546,37 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", [
-    _c("h1", [
-      _c("small", [_vm._v("Carrito de Compras de " + _vm._s(_vm.user.name))]),
-    ]),
+    _c("br"),
     _vm._v(" "),
     _c(
-      "table",
-      { staticClass: "c-table", attrs: { id: "table" } },
+      "div",
+      { staticClass: "shopping-cart " },
       [
         _vm._m(0),
         _vm._v(" "),
         _vm._l(_vm.cart, function (cart, index) {
-          return _c("tbody", { key: index, staticClass: "c-table__body" }, [
+          return _c("div", { key: index, staticClass: "product" }, [
             _vm.user.id == cart.user.id
-              ? _c("tr", [
-                  _c("td"),
+              ? _c("div", [
+                  _c("div", { staticClass: "product-details" }, [
+                    _c("div", { staticClass: "product-title" }, [
+                      _vm._v(_vm._s(cart.product.name)),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "product-description" }, [
+                      _vm._v(_vm._s(cart.product.Description)),
+                    ]),
+                  ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(cart.product.name))]),
+                  _c("div", { staticClass: "product-price" }, [
+                    _vm._v(_vm._s(cart.product.Price)),
+                  ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v("$" + _vm._s(cart.product.Price))]),
-                  _vm._v(" "),
-                  _c("td", [
+                  _c("div", { staticClass: "product-removal" }, [
                     _c(
                       "a",
                       {
-                        staticClass: "btn btn-danger",
+                        staticClass: " remove-product",
                         on: {
                           click: function ($event) {
                             return _vm.deleteCart(cart, index)
@@ -47519,13 +47585,21 @@ var render = function () {
                       },
                       [_vm._v("Eliminar")]
                     ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "height" }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "product-line-price" }, [
+                    _vm._v(_vm._s(cart.product.Price)),
                   ]),
                 ])
               : _vm._e(),
           ])
         }),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _c("a", { staticClass: "btn btn-success checkout" }, [
+          _vm._v("Comprar"),
+        ]),
       ],
       2
     ),
@@ -47536,15 +47610,34 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", { staticClass: "c-table__header" }, [
-      _c("tr", [
-        _c("th"),
+    return _c("div", { staticClass: "column-labels" }, [
+      _c("label", { staticClass: "product-details" }, [_vm._v("Producto")]),
+      _vm._v(" "),
+      _c("label", { staticClass: "product-price" }, [_vm._v("Precio")]),
+      _vm._v(" "),
+      _c("label", { staticClass: "product-removal" }, [_vm._v("Eliminar")]),
+      _vm._v(" "),
+      _c("label", { staticClass: "product-line-price" }, [_vm._v("Total")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "totals" }, [
+      _c("div", { staticClass: "totals-item" }, [
+        _c("label", [_vm._v("Subtotal")]),
         _vm._v(" "),
-        _c("th", { staticClass: "c-table__col-label" }, [_vm._v("Nombre")]),
+        _c("div", {
+          staticClass: "totals-value",
+          attrs: { id: "cart-subtotal" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "totals-item totals-item-total" }, [
+        _c("label", [_vm._v("Total Final")]),
         _vm._v(" "),
-        _c("th", { staticClass: "c-table__col-label" }, [_vm._v("Precio")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "c-table__col-label" }, [_vm._v("Acciones")]),
+        _c("div", { staticClass: "totals-value", attrs: { id: "cart-total" } }),
       ]),
     ])
   },
@@ -47616,6 +47709,18 @@ var render = function () {
         _c("div", { staticClass: "price" }, [
           _vm._v("$" + _vm._s(_vm.product.Price)),
         ]),
+        _vm._v(" "),
+        _vm.product.stock == "Con Stock"
+          ? _c("div", [
+              _c("h4", { staticClass: "verde" }, [
+                _vm._v(_vm._s(_vm.product.stock)),
+              ]),
+            ])
+          : _c("div", [
+              _c("h4", { staticClass: "rojo" }, [
+                _vm._v(_vm._s(_vm.product.stock)),
+              ]),
+            ]),
         _vm._v(" "),
         _c("button", { staticClass: "btn" }, [
           _c(
@@ -47710,12 +47815,20 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "card-body" }, [
                   _c("h3", { staticClass: "price" }, [
-                    _vm._v("$" + _vm._s(product.Price)),
+                    _vm._v("Precio: $" + _vm._s(product.Price)),
                   ]),
                   _vm._v(" "),
-                  _c("p", { staticClass: "description" }, [
-                    _vm._v(_vm._s(product.Description)),
-                  ]),
+                  product.stock == "Con Stock"
+                    ? _c("div", [
+                        _c("h4", { staticClass: "verde" }, [
+                          _vm._v(_vm._s(product.stock)),
+                        ]),
+                      ])
+                    : _c("div", [
+                        _c("h4", { staticClass: "rojo" }, [
+                          _vm._v(_vm._s(product.stock)),
+                        ]),
+                      ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "card-footer text-center" }, [
@@ -47886,6 +47999,50 @@ var render = function () {
                 )
               }),
               0
+            ),
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { staticClass: "form-label" }, [_vm._v("Stock")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.product.stock,
+                    expression: "product.stock",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { required: "" },
+                on: {
+                  change: function ($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function (o) {
+                        return o.selected
+                      })
+                      .map(function (o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.product,
+                      "stock",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  },
+                },
+              },
+              [
+                _c("option", [_vm._v("Con Stock")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Sin Stock")]),
+              ]
             ),
           ]),
           _vm._v(" "),

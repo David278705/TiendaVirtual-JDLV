@@ -14,6 +14,12 @@
 
   <div class="cta">
     <div class="price">${{ product.Price }}</div>
+    <div v-if="product.stock == 'Con Stock'">
+    <h4 class="verde">{{product.stock}}</h4>
+    </div>
+    <div v-else>
+      <h4 class="rojo">{{product.stock}}</h4>
+    </div>
     <button class="btn"><a @click="save(product)">Añadir al Carrito</a><span class="bg"></span></button>
   </div>
 </div>
@@ -33,14 +39,21 @@ export default {
   name: 'Productsdetail.vue',
   methods: {
     async save(product) {
-            await axios.post(`/Carrito/store`, product).then(res => {
+            if(product.stock == 'Sin Stock'){
+
+              alert('Este producto no tiene Stock!')
+              
+            }
+            else{
+              await axios.post(`/Carrito/store`, product).then(res => {
                 if (res.data.saved) {
-                    alert('info subida al carrito!')
+                    alert('Información subida al carrito!')
                 }
                 else{
                   alert('debes iniciar sesion para poder hacer eso')
                 }
             })
+            }
 
         }
   },
@@ -51,6 +64,20 @@ export default {
 </script>
 
 <style scope>
+
+.verde{
+
+  color: rgb(3, 185, 3);
+  text-align: center;
+
+}
+
+.rojo{
+
+  color:red;
+  text-align: center;
+
+}
 
 .cent{
 
