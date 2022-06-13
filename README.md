@@ -1,6 +1,6 @@
 
 
-# TiendaVirtual por Jose David Lozano Valencia
+# Tienda Virtual por Jose David Lozano Valencia
 
 Para tener role de 'ceo' (asignación de roles), ingresar con la siguiente cuenta:
 
