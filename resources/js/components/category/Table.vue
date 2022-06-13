@@ -75,8 +75,5 @@ export default {
 </script>
 
 <style scoped>
-.height {
-  height: 25px;
 
-}
 </style>

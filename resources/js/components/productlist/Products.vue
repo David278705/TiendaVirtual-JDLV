@@ -66,31 +66,6 @@ await axios.post(`/Carrito/store`, product).then(res => {
 
 <style scope>
 
-.hover:hover {
-  cursor: pointer;
-
-}
-
-
-
-.item,
-.price {
-  clear: left;
-  width: 100%;
-  text-align: center;
-}
-
-
-.description {
-  float: left;
-  clear: left;
-  width: 100%;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 1em;
-  text-align: center;
-  margin: 0.2em auto;
-}
 
 
 </style>

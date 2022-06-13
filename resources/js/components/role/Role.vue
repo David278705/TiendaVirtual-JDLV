@@ -45,11 +45,5 @@ export default {
 </script>
 
 <style scope>
-.height {
-
-height: 15px;
-
-}
-
 </style>
 

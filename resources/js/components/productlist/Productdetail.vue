@@ -33,7 +33,6 @@
 </template>
 
 <script>
-
 export default {
   props: ['product'],
   name: 'Productsdetail.vue',
@@ -65,28 +64,7 @@ export default {
 
 <style scope>
 
-.verde{
 
-  color: rgb(3, 185, 3);
-  text-align: center;
-
-}
-
-.rojo{
-
-  color:red;
-  text-align: center;
-
-}
-
-.cent{
-
-display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-
-}
 
 </style>
 
