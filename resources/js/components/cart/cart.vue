@@ -14,7 +14,7 @@
   <div v-for="(cart, index) in cart" :key="index" class="product">
   <div v-if="user.id == cart.user.id">
     <div class="product-details">
-      <div class="product-title">{{cart.product.name}}</div>
+      <div class="product-title"><a :href="`/dashboard/product/${cart.product.id}`">{{cart.product.name}}</a></div>
       <p class="product-description">{{ cart.product.Description }}</p>
     </div>
     <div class="product-price">{{ cart.product.Price }}</div>

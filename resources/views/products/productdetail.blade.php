@@ -7,9 +7,14 @@
     </x-slot>
 
     <div class="py-12">
-        <div id="app" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <product-detail  :product="{{$product}}"/>  
+        <h2 class="text-center">{{$product->Description}}</h2>
+        <br>
+        <div id="app" style="padding-left: 43.5vw">
+                <product-detail  :product="{{$product}}"/>   
+                
         </div>
+        <br>
+                
     </div>
 </x-app-layout>
 
@@ -26,7 +31,10 @@
     <div class="py-12">
         <div id="app" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <product-detail :product="{{$product}}"/>  
+                
         </div>
+        <br>
+       
     </div>
 </x-guest-layout>
 @endguest

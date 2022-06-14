@@ -7,11 +7,12 @@
 <script>
 import ProductList from './Products'
 
+
 export default {
     props: [ 'products' ],
     name: "Index",
     components: {
-        ProductList
+        ProductList,
     },
     data() {
         return {

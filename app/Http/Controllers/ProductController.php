@@ -26,8 +26,15 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+            
+        $imageName = null;
+        if($request->hasFile('image')) {
+            $imageName = "/images/products/{$request->image->getClientOriginalName()}.{$request->image->getClientOriginalExtension()}";
+            $request->image->move(public_path('images/products'), $imageName);
+        }
 
         $product = new Product($request->all());  
+        $product->image = $imageName;
         $product->save();
         return response()->json([
             'saved' => true,
@@ -37,7 +44,7 @@ class ProductController extends Controller
 
     public function storeProduct(Product $product)
     {
-        return view('productdetail', compact('product'));
+        return view('products.productdetail', compact('product'));
     }
 
     public function delete(Product $product)

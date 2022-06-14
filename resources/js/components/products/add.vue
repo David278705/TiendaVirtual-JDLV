@@ -1,7 +1,5 @@
 <template>
-
   <section class="container">
-
     <div class="section-form">
       <form @submit.prevent="save">
         <div class="intro">
@@ -15,8 +13,7 @@
         <div class="form-group">
           <label class="form-label">Categoria</label>
           <select class="form-control" v-model="product.category_id" required>
-            <option v-for="(category, index) in categories" :key="index" :value="category.id"> {{ category.name }}
-            </option>
+            <option v-for="(category, index) in categories" :key="index" :value="category.id"> {{ category.name }}</option>
           </select>
         </div>
         <br>
@@ -36,27 +33,51 @@
           <label for="name">Descripción</label>
           <textarea tabindex="5" rows="5" v-model="product.Description" required></textarea>
         </div>
-
-
+         <div class="form-group">
+          <label for="name">Imagen</label>
+          <br>
+          <input type="file" accept=".jpeg,.jpg,.png,.svg" id="image" @change="onChangeImage"/>
+        </div>
         <button class="btn btn-success">Subir</button>
       </form>
     </div>
   </section>
-
 </template>
-
 <script>
 
 export default {
   props: ['categories', 'product'],
   name: 'add.vue',
+   data() {
+        return {
+            avatar: null
+        }
+
+    },
   methods: {
+
+    onChangeImage(event){
+
+      this.avatar = event.target.files[0]
+      this.product.image = URL.createObjectURL(this.avatar)
+
+    },
+
     async save() {
+       let formData = new FormData();
+       formData.append('name', this.product.name);
+       formData.append('category_id', this.product.category_id);
+       formData.append('stock', this.product.stock);
+        formData.append('Price', this.product.Price);
+        formData.append('Description', this.product.Description);
+       formData.append('image', this.avatar, this.avatar.name);
+
+
       let url = `/Product/store`
       if (!this.product.create) {
         url = `/Product/update/${this.product.id}`
       }
-      await axios.post(url, this.product).then(res => {
+      await axios.post(url, formData).then(res => {
         if (res.data.saved) {
           this.$parent.product =
           {
@@ -66,6 +87,7 @@ export default {
             Image: null,
             Price: null,
             created: true,
+            image: null,
           }
           alert('Producto Añadido!')
           location.reload();

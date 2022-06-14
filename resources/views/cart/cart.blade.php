@@ -30,8 +30,8 @@
 
 <x-guest-layout>
     <div style="padding-top: 10vw" class="container">
-        <h1>No puedes Añadir nada si no estas registrado</h1>
-    <h1><a href="/register">Registrarse</a></h1>
+        <h5>No puedes Añadir nada si no estas registrado</h5>
+    <h5><a href="/register">Registrarse</a></h5>
 
     </div>
 </x-guest-layout>

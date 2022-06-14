@@ -1,3 +1,6 @@
+
+
+@auth
 <x-app-layout>
     <section>
        <x-slot name="header">
@@ -21,13 +24,7 @@
     @endsection
 </x-app-layout>
 
-@auth
-
 
 @endauth
 
-@guest
-
-
-@endguest
 

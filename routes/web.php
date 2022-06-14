@@ -60,7 +60,6 @@ Route::group(['prefix' => 'Product'], function(){
 
 Route::get('/test', function () {
 
-
    /* \Spatie\Permission\Models\Role::create([
         'name' => 'ceo' 
     ]);
@@ -77,7 +76,6 @@ Route::get('/test', function () {
     $user->assignRole($role);
    
     */
-
 
 });
 

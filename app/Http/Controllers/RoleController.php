@@ -12,7 +12,7 @@ class RoleController extends Controller
     {
         $roles = Role::all();
         $users = User::with('roles')->get();
-        return view('role', compact('users','roles'));
+        return view('role.role', compact('users','roles'));
     }
 
     public function edit($user)

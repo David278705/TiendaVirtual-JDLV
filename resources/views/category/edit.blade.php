@@ -17,8 +17,3 @@
 
 @endauth
 
-@guest
-
-<x-guest-layout>
-</x-guest-layout>
-@endguest

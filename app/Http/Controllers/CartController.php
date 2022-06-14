@@ -14,7 +14,7 @@ class CartController extends Controller
         
         $user = Auth::user();
         $cart = Cart::with('user', 'product')->get();
-        return view('cart', compact('cart', 'user'));
+        return view('cart.cart', compact('cart', 'user'));
     }
 
     public function store(Request $request)

@@ -10736,6 +10736,53 @@ label {
     width: 40%;
   }
 }
+.verde {
+  color: rgb(3, 185, 3);
+  text-align: center;
+}
+
+.rojo {
+  color: red;
+  text-align: center;
+}
+
+.cent {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.height {
+  height: 25px;
+}
+
+.hover:hover {
+  cursor: pointer;
+}
+
+.item,
+.price {
+  clear: left;
+  width: 100%;
+  text-align: center;
+}
+
+.productimage {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.description {
+  float: left;
+  clear: left;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  text-align: center;
+  margin: 0.2em auto;
+}
 /*
 ! tailwindcss v3.0.24 | MIT License | https://tailwindcss.com
 *//*

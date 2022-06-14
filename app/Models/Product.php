@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'category_id', 'Price', 'Description', 'stock'];
+    protected $fillable = ['name', 'category_id', 'Price', 'Description', 'stock', 'image'];
 
     public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
