@@ -8642,6 +8642,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['cart', 'user'],
   name: "cart",
@@ -8960,17 +8963,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['categories', 'product'],
   name: 'add.vue',
   data: function data() {
     return {
-      avatar: null
+      avatar: null,
+      show: null
     };
   },
   methods: {
     onChangeImage: function onChangeImage(event) {
       this.avatar = event.target.files[0];
+      this.show = URL.createObjectURL(this.avatar);
       this.product.image = URL.createObjectURL(this.avatar);
     },
     save: function save() {
@@ -47179,8 +47185,12 @@ var render = function () {
           return _c("div", { key: index, staticClass: "product" }, [
             _vm.user.id == cart.user.id
               ? _c("div", [
-                  _c("div", { staticClass: "product-details" }, [
-                    _c("div", { staticClass: "product-title" }, [
+                  _c("div", { staticClass: "product-image" }, [
+                    _c("img", { attrs: { src: "" + cart.product.image } }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "product-details ml-3" }, [
+                    _c("div", { staticClass: "product-title " }, [
                       _c(
                         "a",
                         {
@@ -47240,13 +47250,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "column-labels" }, [
+      _c("label", { staticClass: "product-details" }, [_vm._v("Imagen")]),
+      _vm._v(" "),
       _c("label", { staticClass: "product-details" }, [_vm._v("Producto")]),
       _vm._v(" "),
       _c("label", { staticClass: "product-price" }, [_vm._v("Precio")]),
       _vm._v(" "),
       _c("label", { staticClass: "product-removal" }, [_vm._v("Eliminar")]),
-      _vm._v(" "),
-      _c("label", { staticClass: "product-line-price" }, [_vm._v("Total")]),
     ])
   },
   function () {
@@ -47685,6 +47695,8 @@ var render = function () {
               },
               on: { change: _vm.onChangeImage },
             }),
+            _vm._v(" "),
+            _c("img", { attrs: { src: "" + this.show, alt: "" } }),
           ]),
           _vm._v(" "),
           _c("button", { staticClass: "btn btn-success" }, [_vm._v("Subir")]),

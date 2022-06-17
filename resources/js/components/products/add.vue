@@ -37,6 +37,7 @@
           <label for="name">Imagen</label>
           <br>
           <input type="file" accept=".jpeg,.jpg,.png,.svg" id="image" @change="onChangeImage"/>
+           <img :src="`${this.show}`" alt="">
         </div>
         <button class="btn btn-success">Subir</button>
       </form>
@@ -50,7 +51,8 @@ export default {
   name: 'add.vue',
    data() {
         return {
-            avatar: null
+            avatar: null,
+            show: null
         }
 
     },
@@ -59,6 +61,7 @@ export default {
     onChangeImage(event){
 
       this.avatar = event.target.files[0]
+      this.show = URL.createObjectURL(this.avatar)
       this.product.image = URL.createObjectURL(this.avatar)
 
     },

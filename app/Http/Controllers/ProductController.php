@@ -64,6 +64,14 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
+        $imageName = null;
+        if($request->hasFile('image')) {
+            $imageName = "/images/products/{$request->image->getClientOriginalName()}.{$request->image->getClientOriginalExtension()}";
+            $request->image->move(public_path('images/products'), $imageName);
+        }
+        
+        $product->image = $imageName;
+
         $product->update($request->all());
         return response()->json([
             'updated' => true,

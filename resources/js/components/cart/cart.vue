@@ -5,16 +5,19 @@
 <div class="shopping-cart ">
 
   <div class="column-labels">
+    <label class="product-details">Imagen</label>
     <label class="product-details">Producto</label>
     <label class="product-price">Precio</label>
     <label class="product-removal">Eliminar</label>
-    <label class="product-line-price">Total</label>
   </div>
 
   <div v-for="(cart, index) in cart" :key="index" class="product">
   <div v-if="user.id == cart.user.id">
-    <div class="product-details">
-      <div class="product-title"><a :href="`/dashboard/product/${cart.product.id}`">{{cart.product.name}}</a></div>
+      <div class="product-image">
+      <img :src="`${cart.product.image}`">
+    </div>
+    <div class="product-details ml-3">
+      <div class="product-title "><a :href="`/dashboard/product/${cart.product.id}`">{{cart.product.name}}</a></div>
       <p class="product-description">{{ cart.product.Description }}</p>
     </div>
     <div class="product-price">{{ cart.product.Price }}</div>
@@ -68,7 +71,11 @@ export default {
 
 }
 $('#myTable tr > *:nth-child(2)').hide();
+
+
 </script>
 
 <style scoped>
+
+
 </style>
